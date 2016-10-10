@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>demo1</title>
+</head>
+<body>
+    <input id="soa"/>
+    <input id="sob"/>
+    <br />
+    <button onclick="show('+')">+</button> 
+    <button onclick="show('-')">-</button>
+    <p id="demo"></p>
+    <script >
+        function show(pheptinh) {
+            var a, b,c;
+            a = document.getElementById('soa').value;
+            b = document.getElementById('sob').value;
+            if (ktra(a, b)==false) {
+                document.getElementById("demo").innerHTML = "Khong phai so Can nhap lai";
+            } else {
+                if (pheptinh == '+') {
+                    c = parseInt(a) + parseInt(b);
+                    document.getElementById("demo").innerHTML = (a + "+" + b + "=" + c);
+                } else {
+                    c = a - b;
+                    document.getElementById("demo").innerHTML = (a + "-" + b + "=" + c);
+                }
+            }
+           
+        }
+        function ktra(a, b) {
+            if (isNaN(a) || isNaN(b)) {
+                return false;
+            } else true;
+        }
+    </script>
+</body>
+</html>

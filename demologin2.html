@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script>
+        angular.module('myApp', []).controller('myController', function ($scope) {
+
+            $scope.check = function () {
+
+                var userMau = [{email: 'abc', pass: '123' },
+                    { email: 'abcd', pass: '1234' },
+                    { email: '123', pass: '567' }
+                ]
+                var user = { email: ' ', pass: ' ' };
+                var flag = 0;
+                var name = '';
+                user.email = $scope.email;
+                user.pass = $scope.pass;
+                angular.forEach(userMau, function (user1) {
+                    if (user.email == user1.email && user.pass == user1.pass) {
+                        flag = 1;
+                        name += user1.email;
+                    }
+
+                });
+                if (flag==1) {
+                    $scope.thongbao = "Thành công";
+                    alert('xin chao ' +name);
+                } else $scope.thongbao = "Không thành công";
+            };
+        })
+    </script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <input type="text" ng-model="email" />
+        <input type="text" ng-model="pass" />
+        <button ng-click="check()">login</button>
+        {{thongbao}}
+    </div>
+</body>
+</html>
